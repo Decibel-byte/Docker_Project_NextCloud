@@ -22,7 +22,7 @@ If you want to verify that your database folder has been created or not, install
    
     mysql -h 172.17.0.0/16 (your MySQL container IP) -u (username) -p
  ## F) Docker-Compose
-Install a docker-compose software from https://docs.docker.com/compose/install
+Install a docker-compose software from https://docs.docker.com/compose/install. 
 Make a mycompose file using 
 
     mkdir mycompose. 
