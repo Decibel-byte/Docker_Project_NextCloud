@@ -9,10 +9,11 @@ and start the docker by command
 
     systemctl start docker.
  ## C) Download the Required Images
-Download The NextCloud and MySQL image from hub.docker.com using 
+Download The NextCloud and MySQL image from [](hub.docker.com) using 
     
     docker pull nextcloud:latest
-    docker pull mysql:5.7 commands.
+    docker pull mysql:5.7 
+commands.
  ## D) MySQL setup
 Write a command 
 
@@ -23,7 +24,7 @@ If you want to verify that your database folder has been created or not, install
     mysql -h 172.17.0.0/16 (your MySQL container IP) -u (username) -p
  ## F) Docker-Compose
 Install a docker-compose software from https://docs.docker.com/compose/install. 
-Make a mycompose file using 
+Make a compose file using 
 
     mkdir mycompose. 
 You can create/edit your docker-compose file using 
