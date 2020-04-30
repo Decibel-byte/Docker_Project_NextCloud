@@ -9,7 +9,7 @@ and start the docker by command
 
     systemctl start docker.
  ## C) Download the Required Images
-Download The NextCloud and MySQL image from [](hub.docker.com) using 
+Download The NextCloud and MySQL image from https://hub.docker.com using 
     
     docker pull nextcloud:latest
     docker pull mysql:5.7 
