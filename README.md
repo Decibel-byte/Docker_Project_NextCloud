@@ -2,16 +2,33 @@
 Hey! I have created a Docker Project using a cloud called NextCloud and MySQL Database on top of RedHat Linux. Here I am  going to show you the whole set-up step by step. 
  ## A) Download the RedHat Linux 8
  ## B) Download the Docker tool
-First of all configure the yum command in linux and download the software by yum install docker-ce --nobest and start the docker by systemctl start docker.
+First of all configure the yum command in linux and download the software by 
+        
+    yum install docker-ce --nobest 
+and start the docker by command 
+
+    systemctl start docker.
  ## C) Download the Required Images
-Download The NextCloud and MySQL image from hub.docker.com using docker pull nextcloud:latest and docker pull mysql:5.7 commands.
+Download The NextCloud and MySQL image from hub.docker.com using 
+    
+    docker pull nextcloud:latest
+    docker pull mysql:5.7 commands.
  ## D) MySQL setup
-Write a command docker -i -t -e MYSQL_ROOT_PASSWORD=(your_password) -e MYSQL_USER=(username) -e MYSQL_PASSWORD=(your_password) -e MYSQL_DATABASE=(any_database_name) --name dbos mysql:5.7
+Write a command 
+
+    docker -i -t -e MYSQL_ROOT_PASSWORD=(your_password) -e MYSQL_USER=(username) -e MYSQL_PASSWORD=(your_password) -e MYSQL_DATABASE=       (any_database_name) --name dbos mysql:5.7
  ## E) MySQL client
-If you want to verify that your database folder has been created or not, install MySQL client software using yum install mysql. After installation run this command : mysql -h 172.17.0.0/16 (your MySQL container IP) -u (username) -p
+If you want to verify that your database folder has been created or not, install MySQL client software using yum install mysql. After installation run this command : 
+   
+    mysql -h 172.17.0.0/16 (your MySQL container IP) -u (username) -p
  ## F) Docker-Compose
 Install a docker-compose software from https://docs.docker.com/compose/install
-Make a mycompose file using mkdir mycompose. You can create/edit your docker-compose file using vim docker-compose.yml
+Make a mycompose file using 
+
+    mkdir mycompose. 
+You can create/edit your docker-compose file using 
+    
+    vim docker-compose.yml
 The file name should always be docker-compose.yml
 This is my yml file :
       
@@ -37,14 +54,15 @@ To expose our container to outside world by using PAT.
    
    ## H) Troubleshooting the errors
 Linux firewall won't allow to connect to MySQL database server and to outside world. Hence following commands should be implemented first in order to connect to server.
-         - selinux 0
-         - iptables -F
-         - iptables -P FORWARD ACCEPT
-         - firewall-cmd --zone=trusted --change-interface=docker0 --permanent (If there are any other networks for docker add them too like br-xxxxx)
-         - firewall-cmd --zone=trusted --add-masquerade --permanent
-         - firewall-cmd --add-port=3306/tcp
-         - firewall-cmd --reload
-         - systemctl restart docker
+- selinux 0
+- iptables -F
+- iptables -P FORWARD ACCEPT
+- firewall-cmd --zone=trusted --change-interface=docker0 --permanent (If there are any other networks for docker add them too like br-xxxxx)
+- firewall-cmd --zone=trusted --add-masquerade --permanent
+- firewall-cmd --add-port=3306/tcp
+- firewall-cmd --reload
+- systemctl restart docker
+- Change your network settings to Bridge Adapter
          
    That's it. You can start/stop your services in just a single go.  
              NOTE : - It only works on other devices if you have a same network connectivity (LAN). You can use any of the images like WordPress, Joomla, Drupal, Owncloud, etc and Database images like MariaDB, Oracle, etc.
