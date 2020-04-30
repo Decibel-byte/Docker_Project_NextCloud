@@ -13,4 +13,4 @@ Hey! I have created a Docker Project using a cloud called NextCloud and MySQL Da
  ## F) Docker-Compose
       Install a docker-compose software from https://docs.docker.com/compose/install
       Make a mycompose file using mkdir mycompose. You can create/edit your docker-compose file using vim docker-compose.yml 
-      
+      The file should always be docker-compose.yml
