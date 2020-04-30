@@ -2,7 +2,7 @@
 Hey! I have created a Docker Project using a cloud called NextCloud and MySQL Database on top of RedHat Linux. Here I am  going to show you the whole set-up step by step. 
  ## A) Download the RedHat Linux 8
  ## B) Download the Docker tool
-      First of all configure the yum command in linux and download the software by ```yum install docker-ce --nobest``` and start the docker by systemctl start docker.
+      First of all configure the yum command in linux and download the software by <span style="color:grey;">yum install docker-ce --nobest</span> and start the docker by systemctl start docker.
  ## C) Download the Required Images
       Download The NextCloud and MySQL image from hub.docker.com using docker pull nextcloud:latest and docker pull mysql:5.7 commands.
  ## D) MySQL setup
